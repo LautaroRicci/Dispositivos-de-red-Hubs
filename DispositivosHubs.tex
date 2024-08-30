@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{float}
+
+\begin{document}
+	
+	\title{Dispositivos de red Hubs}
+	\author{Lautaro Ricci}
+	\date{\today}
+	
+	\maketitle
+	
+	\section{Conexión de Dispositivos}
+	
+	Realizar la interconexión entre dos PC's podria ser algo innecesario, por lo que para una mayor utilidad realizamos la conexión a traves de un cable cruzado entre la PC y un Server (arquitectura conocida como cliente-servidor).
+	
+	Con el comando \textbf{'\textbf{ipconfig /all}'} podemos examinar tanto las direcciones físicas (IP) y lógicas (MAC) tanto del PC1, como del Server.
+	\\	
+	
+	\textbf{Direcciones Físicas}
+	\begin{itemize}
+		\item \textbf{PC:} 000C.CF40.25C8
+		\item \textbf{Server:} 000C.CF40.25C8
+	\end{itemize}
+
+	\textbf{Direcciones Lógicas:}
+	\begin{itemize}
+		\item \textbf{PC:} 192.168.0.1
+		\item \textbf{Server:} 192.168.0.100
+	\end{itemize}
+	
+	
+	
+	\section{Extendiendo la Red}
+	\begin{table}[h!]
+		\centering{Direcciones MAC e IP de los Dispositivos}
+		\begin{tabular}{|l|l|l|}
+			\hline
+			\textbf{Dispositivo} & \textbf{Dirección MAC} & \textbf{Dirección IP} \\
+			\hline
+			PC1      & 000C.CF40.25C8 & 192.168.0.1 \\		
+			\hline
+			PC2      & 0010.1183.9B19 & 192.168.0.3 \\
+			\hline
+			PC3      & 00D0.FF57.95EA & 192.168.0.2 \\
+			\hline
+			Server  & 0002.17D4.871E & 192.168.0.100 \\
+			\hline			
+		\end{tabular}
+	\end{table}
+	
+	No es necesario realizar el \textbf{'ipconfig /all'} a cada dispositivo, sino que enviando los PDU al server y luego el utilizando el comando \textbf{'arp -a'} podremos ver todas las direcciónes IP y direcciónes MAC de los diferentes dispositivos.
+
+ \textbf{Imagen Demostrativa:}
+	\begin{figure}
+	    \centering
+	    \includegraphics[width=0.5\linewidth]{WhatsApp Image 2024-08-30 at 13.52.43_c6d8f11e.jpg}
+	\end{figure}
+	
+	\section{Dominios de colisión}
+	
+		En la configuración con 3 hubs centrales y los dispositivos conectados a estos hubs, el número total de dominios de colisión es 3. Cada hub central crea su propio dominio de colisión, y la interconexión entre hubs permite la comunicación entre los dominios, pero no cambia el número total de dominios de colisión.
+			
+
+\end{document}
